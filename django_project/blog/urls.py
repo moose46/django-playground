@@ -9,5 +9,5 @@ urlpatterns = [
     # https://www.pythontutorial.net/django-tutorial/django-edit-form/
     path("post/edit/<int:id>/", views.edit_post, name="post-edit"),
     path("post/delete/<int:id>/", views.delete_post, name="post-delete"),
-    path("about/", views.about, name="about"),
+    # path("about/", views.about, name="about"),
 ]
