@@ -3,3 +3,4 @@ django_project/blog/migrations/
 django_project/django_project/__pycache__/
 django_project/users/__pycache__/
 
+/django_project/users/__pycache__/
