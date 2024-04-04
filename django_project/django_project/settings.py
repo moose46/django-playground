@@ -28,6 +28,9 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+ROOT_URLCONF = "django_project.urls"
+STATIC_URL = "static/"
+STATICFILES_DIRS = [BASE_DIR / "static"]
 # Application definition
 
 INSTALLED_APPS = [
@@ -39,10 +42,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "crispy_forms",
-    "crispy_bootstrap4",
+    # "crispy_forms",
+    "django_bootstrap5",
 ]
-
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -53,9 +55,6 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "django_project.urls"
-STATIC_URL = "static/"
-STATICFILES_DIRS = [BASE_DIR / "static"]
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
@@ -126,3 +125,6 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+# https://pypi.org/project/crispy-bootstrap4/
+CRISPY_TEMPLATE_PACK = "crispy_bulma"
+CRISPY_ALLOWED_TEMPLATE_PACKS = ("bulma",)

@@ -10,3 +10,5 @@
 <https://www.pythontutorial.net/django-tutorial/django-delete-form/>
 <https://www.pythontutorial.net/django-tutorial/django-login/>
 <https://www.pythontutorial.net/django-tutorial/django-registration/>
+
+<https://www.youtube.com/watch?v=APCQ15YqqQ0>
