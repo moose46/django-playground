@@ -23,10 +23,7 @@ class PostForm(ModelForm):
 
     class Meta:
         model = Post
-        fields = [
-            "title",
-            "content",
-        ]
+        fields = ["title", "content", "project"]
         # https://docs.djangoproject.com/en/5.0/topics/forms/modelforms/
         widgets = {"content": forms.Textarea(attrs={"rows": 4, "cols": "40"})}
         labels = {"content": "Detailed Description"}
