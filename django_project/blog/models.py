@@ -7,10 +7,34 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.utils import timezone
 
+"""
+Base model representing common fields for other models.
 
-class Project(models.Model):
-    name = models.CharField(max_length=32)
+Explanation:
+This class serves as a base model with common fields like published_at, updated_at, and author. It is meant to be inherited by other models.
+
+Args:
+- author: ForeignKey to the User model.
+
+Returns:
+None.
+
+Raises:
+None.
+"""
+
+
+class Base(models.Model):
+    published_at = models.DateTimeField(default=timezone.now)
+    updated_at = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    class Meta:
+        abstract = True
+
+
+class Project(Base):
+    name = models.CharField(max_length=32)
 
     def __str__(self):
         return self.name
@@ -19,13 +43,10 @@ class Project(models.Model):
         ordering = ["name"]
 
 
-class Post(models.Model):
+class Post(Base):
     project = models.ForeignKey(Project, on_delete=models.CASCADE, default=None)
     title = models.CharField(max_length=120)
     content = models.TextField()
-    published_at = models.DateTimeField(default=timezone.now)
-    updated_at = models.DateTimeField(auto_now=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
