@@ -1,10 +1,20 @@
 {% extends 'base.html' %}
 {% load django_bootstrap5 %}
 {% block content %}
-  <h1>My Posts</h1>
+  <h1><label for="project-select">Choose a Project:</label></h1>
+  <form method="post" novalidate">
+    {% csrf_token %}
+    <select name="project=select" id="id" onchange="this.form.submit()">
+      <option value="0" selected>All Projects</option>
+      {% for project in projects %}
+        <option value="{{ project.id }}">{{ project.name }}</option>
+      {% endfor %}
+    </select>
+  </form>
+  <ul>
   {% for post in posts %}
     <h2>{{ post.title }}</h2>
-    <small>Published on {{ post.published_at|date:'M d, Y' }} by {{ post.author|title }}</small>
+    <small>Published on {{ post.published_at|date:'M d, Y' }} by {{ post.author|title }}&nbsp-&nbsp {{ post.project }}</small>
     <p>{{ post.content }}</p>
 
     {% if request.user.is_authenticated and request.user == post.author %}

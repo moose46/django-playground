@@ -13,25 +13,25 @@
   	<header>
 		<ul class="nav">
   		{%if request.user.is_authenticated %}
-		<li class="nav-item">
-  			<a class="nav-link active" aria-current="page" href="{% url 'posts' %}">My Posts</a>
-		</li>
-		<li class="nav-item">
-  			<a class="nav-link active" aria-current="page" href="{% url 'post-create' %}">New Post</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link active" aria-current="page" href="{% url 'logout' %}">Logout</a>
-		</li>
-		<li class="nav-link active" aria-current="page">
-			Hi {{ request.user.username | title }}
+			<li class="nav-item">
+				<a class="nav-link active" aria-current="page" href="{% url 'posts' %}">My Posts</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link active" aria-current="page" href="{% url 'post-create' %}">New Post</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link active" aria-current="page" href="{% url 'logout' %}">Logout</a>
+			</li>
+			<li class="nav-link active" aria-current="page">
+				Hi {{ request.user.username | title }}
 		</li>
   		{%else%}
-		<li class="nav-item">
-  			<a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login</a>
-		</li>
-		<li class="nav-item">
-  			<a class="nav-link active" aria-current="page" href="{% url 'register' %}">Register</a>
-		</li>
+			<li class="nav-item">
+				<a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link active" aria-current="page" href="{% url 'register' %}">Register</a>
+			</li>
   		{%endif%}
 		</ul>
   	</header>

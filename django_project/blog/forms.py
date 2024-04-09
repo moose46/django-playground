@@ -1,15 +1,19 @@
 import datetime
 from email.policy import default
+from typing import Any, Mapping
 
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django.core.files.base import File
+from django.db.models.base import Model
 from django.forms import DateField, DateInput, ModelForm
 
 # from django_project.users import forms
+from django.forms.utils import ErrorList
 from django.utils import timezone
 
-from .models import Post
+from .models import Post, Project
 
 
 class PostForm(ModelForm):
@@ -37,3 +41,15 @@ class RegisterForm(UserCreationForm):
     class Meta:
         model = User
         fields = ["username", "email", "password1", "password2"]
+
+
+class HomeForm(forms.ModelForm):
+    class Meta:
+        model = Project
+        fields = ["name"]
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["name"].widget.attrs.update({"class": "form-control"})
+        for field in self.fields:
+            self.fields["name"].widget.attrs.update({"class": "form-control"})
